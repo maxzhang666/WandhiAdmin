@@ -12,7 +12,7 @@ use think\File;
 /**
  * 上传组件
  * Class Uploadfile
- * @package EasyAdmin\upload
+ * @package app\common\store
  */
 class Uploadfile
 {
