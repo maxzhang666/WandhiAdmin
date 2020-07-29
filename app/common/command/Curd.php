@@ -6,12 +6,11 @@ namespace app\common\command;
 
 use app\admin\model\SystemNode;
 use app\common\console\CliEcho;
-use EasyAdmin\curd\BuildCurd;
+use app\common\curdgener\BuildCurd;
 use think\console\Command;
 use think\console\Input;
 use think\console\input\Option;
 use think\console\Output;
-use EasyAdmin\auth\NodeService as NodeService;
 use think\Exception;
 
 class Curd extends Command

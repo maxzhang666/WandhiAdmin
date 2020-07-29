@@ -7,3 +7,4 @@ config/install/lock/install.lock
 /public/docs
 runtime/*
 composer.lock
+#vendor
