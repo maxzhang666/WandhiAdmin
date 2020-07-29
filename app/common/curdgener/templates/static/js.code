@@ -1,4 +1,4 @@
-define(["jquery", "easy-admin"], function ($, ea) {
+define(["jquery", "wandhi-admin"], function ($, wa) {
 
     var init = {
         table_elem: '#currentTable',
@@ -14,20 +14,20 @@ define(["jquery", "easy-admin"], function ($, ea) {
     var Controller = {
 
         index: function () {
-            ea.table.render({
+            wa.table.render({
                 init: init,
                 cols: [[
                 {{indexCols}}
                 ]],
             });
 
-            ea.listen();
+            wa.listen();
         },
         add: function () {
-            ea.listen();
+            wa.listen();
         },
         edit: function () {
-            ea.listen();
+            wa.listen();
         },
     };
     return Controller;
