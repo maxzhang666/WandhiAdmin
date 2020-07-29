@@ -6,3 +6,4 @@ config/install/lock/install.lock
 /public/upload
 /public/docs
 runtime/*
+composer.lock
