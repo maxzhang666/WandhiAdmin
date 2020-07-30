@@ -45,7 +45,7 @@ class BuildCurd
      *  表前缀
      * @var string
      */
-    protected $tablePrefix = 'ea';
+    protected $tablePrefix = 'wa';
 
     /**
      * 主表
@@ -1290,11 +1290,11 @@ class BuildCurd
         foreach ($this->tableColumns as $field => $val) {
 
             if ($val['formType'] == 'image') {
-                $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: ea.table.image}";
+                $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: wa.table.image}";
             } elseif ($val['formType'] == 'images') {
                 continue;
             } elseif ($val['formType'] == 'file') {
-                $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: ea.table.url}";
+                $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: wa.table.url}";
             } elseif ($val['formType'] == 'files') {
                 continue;
             } elseif ($val['formType'] == 'editor') {
@@ -1302,9 +1302,9 @@ class BuildCurd
             } elseif (in_array($field, $this->switchFields)) {
                 if (isset($val['define']) && !empty($val['define'])) {
                     $values = json_encode($val['define'], JSON_UNESCAPED_UNICODE);
-                    $templateValue = "{field: '{$field}', search: 'select', selectList: {$values}, title: '{$val['comment']}', templet: ea.table.switch}";
+                    $templateValue = "{field: '{$field}', search: 'select', selectList: {$values}, title: '{$val['comment']}', templet: wa.table.switch}";
                 } else {
-                    $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: ea.table.switch}";
+                    $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: wa.table.switch}";
                 }
             } elseif (in_array($val['formType'], ['select', 'checkbox', 'radio', 'switch'])) {
                 if (isset($val['define']) && !empty($val['define'])) {
@@ -1314,7 +1314,7 @@ class BuildCurd
                     $templateValue = "{field: '{$field}', title: '{$val['comment']}'}";
                 }
             } elseif (in_array($field, ['remark'])) {
-                $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: ea.table.text}";
+                $templateValue = "{field: '{$field}', title: '{$val['comment']}', templet: wa.table.text}";
             } elseif (in_array($field, $this->sortFields)) {
                 $templateValue = "{field: '{$field}', title: '{$val['comment']}', edit: 'text'}";
             } else {
@@ -1329,11 +1329,11 @@ class BuildCurd
             $table = CommonTool::lineToHump($table);
             foreach ($tableVal['tableColumns'] as $field => $val) {
                 if ($val['formType'] == 'image') {
-                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: ea.table.image}";
+                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: wa.table.image}";
                 } elseif ($val['formType'] == 'images') {
                     continue;
                 } elseif ($val['formType'] == 'file') {
-                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: ea.table.url}";
+                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: wa.table.url}";
                 } elseif ($val['formType'] == 'files') {
                     continue;
                 } elseif ($val['formType'] == 'editor') {
@@ -1341,9 +1341,9 @@ class BuildCurd
                 } elseif ($val['formType'] == 'select') {
                     $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}'}";
                 } elseif (in_array($field, ['remark'])) {
-                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: ea.table.text}";
+                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: wa.table.text}";
                 } elseif (in_array($field, $this->switchFields)) {
-                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: ea.table.switch}";
+                    $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', templet: wa.table.switch}";
                 } elseif (in_array($field, $this->sortFields)) {
                     $templateValue = "{field: '{$table}.{$field}', title: '{$val['comment']}', edit: 'text'}";
                 } else {
@@ -1354,7 +1354,7 @@ class BuildCurd
             }
         }
 
-        $indexCols .= $this->formatColsRow("{width: 250, title: '操作', templet: ea.table.tool},\r");
+        $indexCols .= $this->formatColsRow("{width: 250, title: '操作', templet: wa.table.tool},\r");
 
         $jsValue = CommonTool::replaceTemplate(
             $this->getTemplate("static{$this->DS}js"),
